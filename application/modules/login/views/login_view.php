@@ -9,7 +9,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=Edge">
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
-    <title>Sistem Inventory</title>
+    <title>Profindo Sekuritas Indonesia</title>
     <!-- Favicon-->
     <link rel="shortcut icon" href="<?php echo base_url('assets/frontend/');?>images/ico/favicon.ico"> 
     <!-- Google Fonts -->
@@ -45,10 +45,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             <div class="body">
 
                 <form id="sign_in" action="<?php echo base_url('login/autentikasi'); ?>" method="POST" enctype="multipart/form-data">
-                    <div class="msg"><b>Sistem Inventory</b> </div>
-                    <div align="center">
-                    <img src="<?php echo base_url('assets/images/inv.jpg'); ?>" style="width:20%;" alt="">
-                    </div>
+                    <div class="msg"><b>Profindo Sekuritas Indonesia</b> </div>
+                   
                     
                     <div class="input-group">
                         <span class="input-group-addon">

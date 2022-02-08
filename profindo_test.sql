@@ -1,243 +1,112 @@
--- MySQL dump 10.13  Distrib 5.5.62, for Win64 (AMD64)
---
--- Host: localhost    Database: db_siti
--- ------------------------------------------------------
--- Server version	5.7.33
+/*
+ Navicat Premium Data Transfer
 
-/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
-/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
-/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8 */;
-/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
-/*!40103 SET TIME_ZONE='+00:00' */;
-/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
-/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
-/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
-/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+ Source Server         : localhost
+ Source Server Type    : MySQL
+ Source Server Version : 50733
+ Source Host           : localhost:3306
+ Source Schema         : profindo_test
 
---
--- Table structure for table `m_barang`
---
+ Target Server Type    : MySQL
+ Target Server Version : 50733
+ File Encoding         : 65001
 
-DROP TABLE IF EXISTS `m_barang`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `m_barang` (
-  `id` int(10) NOT NULL AUTO_INCREMENT,
-  `nama_barang` varchar(255) DEFAULT NULL,
-  `id_kategori` varchar(255) DEFAULT NULL,
-  `keterangan` varchar(100) DEFAULT NULL,
-  `qty` varchar(100) DEFAULT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
-/*!40101 SET character_set_client = @saved_cs_client */;
+ Date: 08/02/2022 08:28:32
+*/
 
---
--- Dumping data for table `m_barang`
---
+SET NAMES utf8mb4;
+SET FOREIGN_KEY_CHECKS = 0;
 
-LOCK TABLES `m_barang` WRITE;
-/*!40000 ALTER TABLE `m_barang` DISABLE KEYS */;
-INSERT INTO `m_barang` VALUES (1,'Sabun','3','OK','8'),(3,'Kue','2','OK','10');
-/*!40000 ALTER TABLE `m_barang` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
--- Table structure for table `m_jabatan`
---
-
-DROP TABLE IF EXISTS `m_jabatan`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `m_jabatan` (
-  `id` int(10) NOT NULL AUTO_INCREMENT,
-  `nama_jabatan` varchar(255) DEFAULT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `m_jabatan`
---
-
-LOCK TABLES `m_jabatan` WRITE;
-/*!40000 ALTER TABLE `m_jabatan` DISABLE KEYS */;
-INSERT INTO `m_jabatan` VALUES (1,'Mandor'),(3,'Kenek');
-/*!40000 ALTER TABLE `m_jabatan` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
--- Table structure for table `m_kategori`
---
-
-DROP TABLE IF EXISTS `m_kategori`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `m_kategori` (
-  `id` int(10) NOT NULL AUTO_INCREMENT,
-  `nama_kategori` varchar(255) DEFAULT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `m_kategori`
---
-
-LOCK TABLES `m_kategori` WRITE;
-/*!40000 ALTER TABLE `m_kategori` DISABLE KEYS */;
-INSERT INTO `m_kategori` VALUES (2,'Padat'),(3,'Cair');
-/*!40000 ALTER TABLE `m_kategori` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
--- Table structure for table `m_pegawai`
---
-
-DROP TABLE IF EXISTS `m_pegawai`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `m_pegawai` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `nip` varchar(50) DEFAULT NULL,
-  `nama` varchar(100) DEFAULT NULL,
-  `telp` text,
-  `alamat` text,
-  `email` varchar(100) DEFAULT NULL,
-  `id_jabatan` int(10) DEFAULT NULL,
-  `foto` varchar(255) DEFAULT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `m_pegawai`
---
-
-LOCK TABLES `m_pegawai` WRITE;
-/*!40000 ALTER TABLE `m_pegawai` DISABLE KEYS */;
-INSERT INTO `m_pegawai` VALUES (1,'234324','Okki Setyawan','034234','Bekasi','okkisetyawan@gmail.com',1,NULL),(2,'8923423','Joni','0242349','Buaran','okkisetyawan@gmail.com',3,NULL),(3,'5665','Rudi','932834','Jakarta','rudi@mail.com',1,NULL);
-/*!40000 ALTER TABLE `m_pegawai` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
--- Table structure for table `m_sub_kategori`
---
-
-DROP TABLE IF EXISTS `m_sub_kategori`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `m_sub_kategori` (
-  `id` int(10) NOT NULL AUTO_INCREMENT,
-  `id_kategori` int(10) DEFAULT NULL,
-  `nama_sub_kategori` varchar(255) DEFAULT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `m_sub_kategori`
---
-
-LOCK TABLES `m_sub_kategori` WRITE;
-/*!40000 ALTER TABLE `m_sub_kategori` DISABLE KEYS */;
-/*!40000 ALTER TABLE `m_sub_kategori` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
--- Table structure for table `m_user`
---
-
+-- ----------------------------
+-- Table structure for m_user
+-- ----------------------------
 DROP TABLE IF EXISTS `m_user`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `m_user` (
+CREATE TABLE `m_user`  (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `username` varchar(255) DEFAULT NULL,
-  `password` varchar(255) DEFAULT NULL,
-  `id_pegawai` varchar(255) DEFAULT NULL,
-  `level` int(10) DEFAULT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
-/*!40101 SET character_set_client = @saved_cs_client */;
+  `username` varchar(255) CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL DEFAULT NULL,
+  `password` varchar(255) CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL DEFAULT NULL,
+  `id_pegawai` varchar(255) CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL DEFAULT NULL,
+  `level` int(10) NULL DEFAULT NULL,
+  PRIMARY KEY (`id`) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 4 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Dynamic;
 
---
--- Dumping data for table `m_user`
---
+-- ----------------------------
+-- Records of m_user
+-- ----------------------------
+INSERT INTO `m_user` VALUES (1, 'admin', '0cc175b9c0f1b6a831c399e269772661 ', '99', 1);
+INSERT INTO `m_user` VALUES (2, 'rudi', 'YQ==', '3', 1);
+INSERT INTO `m_user` VALUES (3, 'ruru', 'YQ==', '3', 1);
 
-LOCK TABLES `m_user` WRITE;
-/*!40000 ALTER TABLE `m_user` DISABLE KEYS */;
-INSERT INTO `m_user` VALUES (1,'admin','0cc175b9c0f1b6a831c399e269772661 ','99',1),(2,'rudi','YQ==','3',1),(3,'ruru','YQ==','3',1);
-/*!40000 ALTER TABLE `m_user` ENABLE KEYS */;
-UNLOCK TABLES;
+-- ----------------------------
+-- Table structure for tb_apoteker
+-- ----------------------------
+DROP TABLE IF EXISTS `tb_apoteker`;
+CREATE TABLE `tb_apoteker`  (
+  `kode_apoteker` varchar(50) CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL,
+  `nama_apoteker` varchar(50) CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL DEFAULT NULL,
+  `tanggal_lahir` date NULL DEFAULT NULL,
+  PRIMARY KEY (`kode_apoteker`) USING BTREE
+) ENGINE = InnoDB CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Dynamic;
 
---
--- Table structure for table `t_keluar`
---
+-- ----------------------------
+-- Records of tb_apoteker
+-- ----------------------------
+INSERT INTO `tb_apoteker` VALUES ('2494', 'Joni', '2022-02-08');
+INSERT INTO `tb_apoteker` VALUES ('AP001', 'Indahssss', '1996-03-31');
+INSERT INTO `tb_apoteker` VALUES ('AP002', 'Ayu', '1998-06-21');
 
-DROP TABLE IF EXISTS `t_keluar`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `t_keluar` (
-  `id` int(10) NOT NULL AUTO_INCREMENT,
-  `id_barang` int(10) DEFAULT NULL,
-  `trans_out` int(10) DEFAULT NULL,
-  `keterangan` varchar(100) DEFAULT NULL,
-  `user_insert` int(10) DEFAULT NULL,
-  `date_insert` datetime DEFAULT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
-/*!40101 SET character_set_client = @saved_cs_client */;
+-- ----------------------------
+-- Table structure for tb_obat
+-- ----------------------------
+DROP TABLE IF EXISTS `tb_obat`;
+CREATE TABLE `tb_obat`  (
+  `kode_obat` varchar(50) CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL,
+  `nama_obat` varchar(50) CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL DEFAULT NULL,
+  `harga_obat` int(20) NULL DEFAULT NULL,
+  `sisa_obat` int(20) NULL DEFAULT NULL,
+  `tanggal_exp` date NULL DEFAULT NULL,
+  PRIMARY KEY (`kode_obat`) USING BTREE
+) ENGINE = InnoDB CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Dynamic;
 
---
--- Dumping data for table `t_keluar`
---
+-- ----------------------------
+-- Records of tb_obat
+-- ----------------------------
+INSERT INTO `tb_obat` VALUES ('CM001', 'Prove D3-1000', 54000, 367, '2022-02-07');
+INSERT INTO `tb_obat` VALUES ('CM002', 'Becom-Zet', 43000, 76, '2022-02-01');
+INSERT INTO `tb_obat` VALUES ('CM003', 'Megazing', 33000, 150, '2021-01-13');
+INSERT INTO `tb_obat` VALUES ('CM004', 'Zegavit', 40000, 300, '2022-07-01');
+INSERT INTO `tb_obat` VALUES ('CM005', 'Panadol', 26000, 200, '2022-03-09');
+INSERT INTO `tb_obat` VALUES ('CM006', 'Zenirex', 27000, 146, '2021-11-27');
+INSERT INTO `tb_obat` VALUES ('CM007', 'Amoxilin', 19000, 90, '2021-10-19');
+INSERT INTO `tb_obat` VALUES ('CM008', 'Betadine', 13000, 89, '2021-12-13');
+INSERT INTO `tb_obat` VALUES ('CM009', 'Gliserol', 36000, 240, '2022-04-06');
+INSERT INTO `tb_obat` VALUES ('CM010', 'Promag', 11000, 241, '2021-11-03');
 
-LOCK TABLES `t_keluar` WRITE;
-/*!40000 ALTER TABLE `t_keluar` DISABLE KEYS */;
-INSERT INTO `t_keluar` VALUES (1,1,5,'ok',3,'2021-09-15 08:50:33');
-/*!40000 ALTER TABLE `t_keluar` ENABLE KEYS */;
-UNLOCK TABLES;
+-- ----------------------------
+-- Table structure for trans_obat
+-- ----------------------------
+DROP TABLE IF EXISTS `trans_obat`;
+CREATE TABLE `trans_obat`  (
+  `id_trans` varchar(50) CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL,
+  `kode_obat` varchar(50) CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL,
+  `jumlah_jual` int(20) NOT NULL DEFAULT 0,
+  `kode_apoteker` varchar(50) CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL,
+  `tanggal_beli` date NOT NULL,
+  PRIMARY KEY (`id_trans`) USING BTREE
+) ENGINE = InnoDB CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Dynamic;
 
---
--- Table structure for table `t_masuk`
---
+-- ----------------------------
+-- Records of trans_obat
+-- ----------------------------
+INSERT INTO `trans_obat` VALUES ('TRK001', 'CM004', 16, 'AP001', '2021-07-31');
+INSERT INTO `trans_obat` VALUES ('TRK002', 'CM009', 34, 'AP001', '2021-08-09');
+INSERT INTO `trans_obat` VALUES ('TRK003', 'CM007', 21, 'AP002', '2021-08-13');
+INSERT INTO `trans_obat` VALUES ('TRK004', 'CM001', 26, 'AP002', '2021-08-27');
+INSERT INTO `trans_obat` VALUES ('TRK005', 'CM004', 65, 'AP002', '2021-09-03');
+INSERT INTO `trans_obat` VALUES ('TRK006', 'CM009', 32, 'AP001', '2021-09-06');
+INSERT INTO `trans_obat` VALUES ('TRK007', 'CM005', 13, 'AP002', '2021-09-16');
+INSERT INTO `trans_obat` VALUES ('TRK008', 'CM003', 11, 'AP001', '2021-09-28');
+INSERT INTO `trans_obat` VALUES ('TRK009', 'CM009', 28, 'AP001', '2021-10-15');
+INSERT INTO `trans_obat` VALUES ('TRK010', 'CM002', 44, 'AP002', '2021-10-20');
 
-DROP TABLE IF EXISTS `t_masuk`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `t_masuk` (
-  `id` int(10) NOT NULL AUTO_INCREMENT,
-  `id_barang` int(10) DEFAULT NULL,
-  `trans_in` int(10) DEFAULT NULL,
-  `keterangan` varchar(100) DEFAULT NULL,
-  `user_insert` int(10) DEFAULT NULL,
-  `date_insert` datetime DEFAULT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `t_masuk`
---
-
-LOCK TABLES `t_masuk` WRITE;
-/*!40000 ALTER TABLE `t_masuk` DISABLE KEYS */;
-INSERT INTO `t_masuk` VALUES (1,1,10,'OK',1,'2021-09-10 15:53:23');
-/*!40000 ALTER TABLE `t_masuk` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
--- Dumping routines for database 'db_siti'
---
-/*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
-
-/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
-/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
-/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
-/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
-/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
-/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
-/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
-
--- Dump completed on 2021-09-15 16:01:24
+SET FOREIGN_KEY_CHECKS = 1;

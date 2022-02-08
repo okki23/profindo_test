@@ -157,6 +157,7 @@
                         </a>
                     </li> 
      <?php
+     //administrator
      if($this->session->userdata('level') == 1){
      ?>
 <li>
@@ -196,10 +197,18 @@
                                     <span>User Account</span>
                                 </a>
                             </li>  
+
+                            <li>
+                                <a href="<?php echo base_url('apoteker'); ?>">
+                                <i class="material-icons">dns</i>
+                                    <span>Apoteker</span>
+                                </a>
+                            </li>  
                         </ul>
                     </li>
      <?php
      }
+     //if then apoteker
      ?>
                     
    
