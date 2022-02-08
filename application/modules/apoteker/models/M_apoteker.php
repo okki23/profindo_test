@@ -28,7 +28,7 @@ class M_apoteker extends Parent_Model {
                * 
                * \'single quotes\'
                */
-		    $sub_array[] = '<a href="javascript:void(0)" class="btn btn-warning btn-xs waves-effect" id="edit" onclick="Ubah_Data('"\.'$row->kode_apoteker.\');" > <i class="material-icons">create</i> Ubah </a> 
+		    $sub_array[] = '<a href="javascript:void(0)" class="btn btn-warning btn-xs waves-effect" id="edit" onclick="Ubah_Data('"\.'$row->kode_apoteker\');" > <i class="material-icons">create</i> Ubah </a> 
 								&nbsp; <a href="javascript:void(0)" id="delete" class="btn btn-danger btn-xs waves-effect" onclick="Hapus_Data('.$row->kode_apoteker.');" > <i class="material-icons">delete</i> Hapus </a>';  
                 $sub_array[] = $row->kode_apoteker;
                 $data[] = $sub_array;  
